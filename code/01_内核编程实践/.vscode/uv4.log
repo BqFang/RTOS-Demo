@@ -1,0 +1,11 @@
+*** Using Compiler 'V6.16', folder: 'E:\MDK-ARM-5.36\APP\ARM\ARMCLANG\Bin'
+Build target 'Target 1'
+main.c(44): warning: unused function 'Delay' [-Wunused-function]
+static void Delay(int count)
+            ^
+1 warning generated.
+compiling main.c...
+linking...
+Program Size: Code=220 RO-data=992 RW-data=4 ZI-data=7688  
+".\Objects\RTOS.axf" - 0 Error(s), 1 Warning(s).
+Build Time Elapsed:  00:00:00
