@@ -1,1 +1,1 @@
-.\objects\switch.o: switch.c
+.\objects\switch.o: Source\switch.c

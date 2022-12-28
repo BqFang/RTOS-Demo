@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'RTOS' 
+ * Project: 'tinyOS' 
  * Target:  'Target 1' 
  */
 
@@ -14,7 +14,7 @@
 /*
  * Define the Device Header File: 
  */
-#define CMSIS_device_header "ARMCM4.h"
+#define CMSIS_device_header "ARMCM3.h"
 
 
 

@@ -1,37 +1,32 @@
-#include <stdio.h>
-
-/* ºê¶¨Òå */
-#define NVIC_INT_CTRL   0xE000ED04
-#define NVIC_PENDSVSET  0x10000000
-#define NVIC_SYSPRI2    0xE000ED22
-#define NVIC_PENDSV_PRI 0x000000FF
+#define NVIC_INT_CTRL   0xE000Ed04    // ä¸­æ–­æŽ§åˆ¶åŠçŠ¶æ€å¯„å­˜å™¨
+#define NVIC_PENDSVSET  0x10000000    // è§¦å‘è½¯ä»¶ä¸­æ–­çš„å€¼
+#define NVIC_SYSPRI2    0xE000ED22    // ç³»ç»Ÿä¼˜å…ˆçº§å¯„å­˜å™¨
+#define NVIC_PENDSV_PRI 0x000000FF    // é…ç½®ä¼˜å…ˆçº§
 
 #define MEM32(addr)     *(volatile unsigned long *)(addr)
 #define MEM8(addr)      *(volatile unsigned char *)(addr)
 
 
-/* ±äÁ¿ÉùÃ÷ */
+
 int flag = 0;
 
-/* º¯ÊýÉùÃ÷*/
+
 static void Delay(int count);
 static void TriggerPendSVC(void);
 
 
-/* Õ»¶¨Òå */
+
 typedef struct _BlockType_t {
 	unsigned long *StackPtr;
 }BlockType_t;
 
-static BlockType_t *blockPtr = NULL;
+BlockType_t *blockPtr ;
 
-/* »º³åÇø¶¨Òå */
 static unsigned long stackBuffer[1024];
 static BlockType_t block;
 
 int main(void)
 {
-	block.StackPtr = &stackBuffer[1024];
 	blockPtr = (BlockType_t *)&stackBuffer;
 
 	for(;;)
@@ -41,11 +36,12 @@ int main(void)
 		flag = 0;
 		Delay(100);
 		
+		block.StackPtr = &stackBuffer[1024];
 		TriggerPendSVC();
 	}
 }
 	
-/* º¯ÊýÊµÏÖ */
+
 static void Delay(int count)
 {
 	while(--count > 0);
